@@ -30,7 +30,9 @@ export default function statement(invoices, plays) {
     
     return result
   }
-
+  function playFor(aPerformance) {
+    return plays[aPerformance.playID];
+  }
   for (let perf of invoices.performances) {
     const play = plays[perf.playID] 
     let thisAmount = amoutFor(perf, play) 
