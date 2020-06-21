@@ -50,6 +50,14 @@ export default function statement(invoices, plays) {
     }).format(aNumber / 100)
   }
 
+  function volumeCreditsCalc(aVar) {
+    for (let perf of invoices.performances) {
+      volumeCredits  += volumeCreditsFor(perf);
+      //print line for this order
+      result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
+      totalAmount += amountFor(perf);
+    }
+  }
   for (let perf of invoices.performances) {
     volumeCredits  += volumeCreditsFor(perf);
     //print line for this order
