@@ -39,7 +39,7 @@ export default function statement(invoices, plays) {
     // add volume credits
     volumeCredits += Math.max(perf.audience - 30, 0);
     // add extra credits for every ten comedy attendees
-    if ("comedy" === play.type) {
+    if ("comedy" === playFor(perf).type) {
       volumeCredits += Math.floor(perf.audience / 5);
     }
     //print line for this order
