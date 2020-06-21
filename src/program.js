@@ -1,9 +1,11 @@
 export default function statement(invoices, plays) {
-  let totalAmount = 0
   let result = `Statement for ${invoices.customer}\n`;
 
   function playFor(aPerformance) {
     return plays[aPerformance.playID];
+  }
+  for (let perf of invoices.performances) {
+    result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
   }
 
   function amountFor(aPerformance) {
@@ -57,15 +59,16 @@ export default function statement(invoices, plays) {
     return result;
   }
 
+  let totalAmount = 0
   function appleSauce(){
     let totalAmount = 0;
     for (let perf of invoices.performances) {
-      result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
       totalAmount += amountFor(perf);
     }
     return totalAmount;
   }
   totalAmount = appleSauce()
+
   result += `Amount owed is ${usd(appleSauce())}\n`
   result += `You earned ${totalVolumeCredits()} credits\n`;
   return result;
