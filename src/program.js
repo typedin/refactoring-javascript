@@ -67,7 +67,7 @@ export default function statement(invoices, plays) {
     }
     return totalAmount;
   }
-  totalAmount = appleSauce()
+  //totalAmount = appleSauce()
 
   result += `Amount owed is ${usd(appleSauce())}\n`
   result += `You earned ${totalVolumeCredits()} credits\n`;
