@@ -8,7 +8,7 @@ export default function statement(invoices, plays) {
     minimumFractionDigits: 2
   }).format;
 
-  function amoutFor(aPerformance, play) {
+  function amountFor(aPerformance, play) {
     let result = 0;
     switch (play.type) {
       case 'tragedy':
@@ -34,7 +34,7 @@ export default function statement(invoices, plays) {
     return plays[aPerformance.playID];
   }
   for (let perf of invoices.performances) {
-    let thisAmount = amoutFor(perf, playFor(perf)) 
+    let thisAmount = amountFor(perf, playFor(perf)) 
     // add volume credits
     volumeCredits += Math.max(perf.audience - 30, 0);
     // add extra credits for every ten comedy attendees
