@@ -29,7 +29,7 @@ export default function statement(invoices, plays) {
         result += 300 * aPerformance.audience
         break;
       default:
-        throw new Error("unknown type: ${play.type}");
+        throw new Error("unknown type: ${playFor(aPerformance).type}");
     }
     
     return result
