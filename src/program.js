@@ -50,11 +50,11 @@ export default function statement(invoices, plays) {
   }
 
   function totalVolumeCredits() {
-    let volumeCredits = 0;
+    let result = 0;
     for (let perf of invoices.performances) {
-      volumeCredits  += volumeCreditsFor(perf);
+      result  += volumeCreditsFor(perf);
     }
-    return volumeCredits;
+    return result;
   }
 
   for (let perf of invoices.performances) {
