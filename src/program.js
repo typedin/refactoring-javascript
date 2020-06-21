@@ -8,9 +8,13 @@ export default function statement(invoices, plays) {
     minimumFractionDigits: 2
   }).format;
 
+  function playFor(aPerformance) {
+    return plays[aPerformance.playID];
+  }
+
   function amountFor(aPerformance, play) {
     let result = 0;
-    switch (play.type) {
+    switch (playFor(aPerformance).type) {
       case 'tragedy':
         result = 40000 
         if(aPerformance.audience > 30){
@@ -29,9 +33,6 @@ export default function statement(invoices, plays) {
     }
     
     return result
-  }
-  function playFor(aPerformance) {
-    return plays[aPerformance.playID];
   }
   for (let perf of invoices.performances) {
     let thisAmount = amountFor(perf, playFor(perf)) 
