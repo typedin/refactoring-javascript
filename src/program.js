@@ -4,6 +4,7 @@ export default function statement(invoices, plays) {
   function playFor(aPerformance) {
     return plays[aPerformance.playID];
   }
+
   for (let perf of invoices.performances) {
     result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
   }
@@ -35,11 +36,9 @@ export default function statement(invoices, plays) {
     let result = 0
 
     result += Math.max(aPerformance.audience - 30, 0);
-    // add extra credits for every ten comedy attendees
     if ("comedy" === playFor(aPerformance).type) {
       result += Math.floor(aPerformance.audience / 5);
     }
-
     return result;
   }
   
