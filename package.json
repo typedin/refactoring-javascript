@@ -1,0 +1,16 @@
+{
+  "name": "Refactoring",
+  "version": "1.0.0",
+  "main": "program.js",
+  "author": "AntoineC <antoine@a-f.studio>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
