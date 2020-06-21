@@ -33,7 +33,6 @@ export default function statement(invoices, plays) {
     
     return result
   }
-  let volumeCredits = 0
 
   function volumeCreditsFor(perf) {
     let result = 0
@@ -46,6 +45,7 @@ export default function statement(invoices, plays) {
 
     return result;
   }
+  let volumeCredits = 0
   for (let perf of invoices.performances) {
     volumeCredits  += volumeCreditsFor(perf);
     //print line for this order
