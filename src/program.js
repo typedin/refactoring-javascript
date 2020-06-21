@@ -59,15 +59,13 @@ export default function statement(invoices, plays) {
     return result;
   }
 
-  let totalAmount = 0
   function appleSauce(){
-    let totalAmount = 0;
+    let result = 0;
     for (let perf of invoices.performances) {
-      totalAmount += amountFor(perf);
+      result += amountFor(perf);
     }
-    return totalAmount;
+    return result;
   }
-  //totalAmount = appleSauce()
 
   result += `Amount owed is ${usd(appleSauce())}\n`
   result += `You earned ${totalVolumeCredits()} credits\n`;
