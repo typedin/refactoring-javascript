@@ -35,7 +35,6 @@ export default function statement(invoices, plays) {
     return result
   }
   for (let perf of invoices.performances) {
-    let thisAmount = amountFor(perf) 
     // add volume credits
     volumeCredits += Math.max(perf.audience - 30, 0);
     // add extra credits for every ten comedy attendees
