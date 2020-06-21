@@ -1,6 +1,5 @@
 export default function statement(invoices, plays) {
   let totalAmount = 0
-  let volumeCredits = 0
   let result = `Statement for ${invoices.customer}\n`;
   const format = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -33,6 +32,11 @@ export default function statement(invoices, plays) {
     }
     
     return result
+  }
+  let volumeCredits = 0
+
+  function volumeCreditsFor(perf) {
+    let volumeCredits = 0
   }
   for (let perf of invoices.performances) {
     // add volume credits
