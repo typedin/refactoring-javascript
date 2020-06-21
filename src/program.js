@@ -50,10 +50,14 @@ export default function statement(invoices, plays) {
   }
 
   let volumeCredits = 0
-  for (let perf of invoices.performances) {
-    volumeCredits  += volumeCreditsFor(perf);
+  function totalVolumeCredits() {
+    let volumeCredits = 0;
+    for (let perf of invoices.performances) {
+      volumeCredits  += volumeCreditsFor(perf);
+    }
+    return volumeCredits;
   }
-
+  volumeCredits = totalVolumeCredits()
   for (let perf of invoices.performances) {
     result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
     totalAmount += amountFor(perf);
