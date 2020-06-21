@@ -34,9 +34,8 @@ export default function statement(invoices, plays) {
     return plays[aPerformance.playID];
   }
   for (let perf of invoices.performances) {
-    //const play = plays[perf.playID] 
     const play = playFor(perf)
-    let thisAmount = amoutFor(perf, play) 
+    let thisAmount = amoutFor(perf, playFor(perf)) 
     // add volume credits
     volumeCredits += Math.max(perf.audience - 30, 0);
     // add extra credits for every ten comedy attendees
