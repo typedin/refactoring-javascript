@@ -40,7 +40,6 @@ export default function statement(invoices, plays) {
 
     return result;
   }
-  let volumeCredits = 0
   
   function usd(aNumber) {
     return new Intl.NumberFormat("en-US", {
@@ -50,6 +49,7 @@ export default function statement(invoices, plays) {
     }).format(aNumber / 100)
   }
 
+  let volumeCredits = 0
   for (let perf of invoices.performances) {
     volumeCredits  += volumeCreditsFor(perf);
   }
