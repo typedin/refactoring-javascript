@@ -5,9 +5,6 @@ export default function statement(invoices, plays) {
     return plays[aPerformance.playID];
   }
 
-  for (let perf of invoices.performances) {
-    result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
-  }
 
   function amountFor(aPerformance) {
     let result = 0;
@@ -64,6 +61,9 @@ export default function statement(invoices, plays) {
       result += amountFor(perf);
     }
     return result;
+  }
+  for (let perf of invoices.performances) {
+    result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
   }
 
   result += `Amount owed is ${usd(totalAmount())}\n`
