@@ -10,7 +10,7 @@ You earned 47 credits
 const invoices = require("../src/invoices.json");
 const plays = require("../src/plays.json");
 
-import Statement from "../src/program.js"
+import Statement from "../src/statement.js"
 
 it('returns the correct response', function() {
   expect(Statement(invoices[0], plays)).toEqual(expectation)
