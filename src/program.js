@@ -2,9 +2,9 @@ export default function statement(invoices, plays) {
   const statementData = {};
   statementData.customer = invoices.customer
   statementData.performances = invoices.performances
-  return renderPlainText(statementData, invoices, plays);
+  return renderPlainText(statementData, plays);
 }
-function renderPlainText(data, invoices, plays) {
+function renderPlainText(data, plays) {
   let result = `Statement for ${data.customer}\n`;
 
   for (let perf of data.performances) {
