@@ -4,6 +4,14 @@ export default function statement(invoices, plays) {
   return renderPlainText(createStatementData(invoices, plays));
 }
 
+  function usd(aNumber) {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 2
+    }).format(aNumber / 100)
+  }
+
 function renderPlainText(data, plays) {
   let result = `Statement for ${data.customer}\n`;
 
@@ -15,12 +23,10 @@ function renderPlainText(data, plays) {
   result += `You earned ${data.totalVolumeCredits} credits\n`;
   return result;
 
-  function usd(aNumber) {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 2
-    }).format(aNumber / 100)
-  }
 }
 
+function renderHtml(){
+  let result = '';
+
+  return result;
+}
