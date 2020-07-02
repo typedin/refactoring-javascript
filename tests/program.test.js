@@ -1,4 +1,4 @@
-const expectation = `Statement for BigCo
+const plainText = `Statement for BigCo
  Hamlet: $650.00 (55 seats)
  As You Like It: $490.00 (35 seats)
  Othello: $500.00 (40 seats)
@@ -10,9 +10,9 @@ You earned 47 credits
 const invoices = require("../src/invoices.json");
 const plays = require("../src/plays.json");
 
-import Statement from "../src/statement.js"
+import { statement } from "../src/statement.js"
 
 it('returns the correct response', function() {
-  expect(Statement(invoices[0], plays)).toEqual(expectation)
+  expect(statement(invoices[0], plays)).toEqual(plainText)
 });
 

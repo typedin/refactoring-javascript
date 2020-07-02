@@ -1,16 +1,17 @@
 import createStatementData from "./createStatementData.js";
+export { statement }
 
-export default function statement(invoices, plays) {
+function statement(invoices, plays) {
   return renderPlainText(createStatementData(invoices, plays));
 }
 
-  function usd(aNumber) {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 2
-    }).format(aNumber / 100)
-  }
+function usd(aNumber) {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2
+  }).format(aNumber / 100)
+}
 
 function renderPlainText(data, plays) {
   let result = `Statement for ${data.customer}\n`;
