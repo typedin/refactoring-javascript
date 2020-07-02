@@ -2,7 +2,6 @@ import createStatementData from "./createStatementData.js";
 
 export default function statement(invoices, plays) {
   return renderPlainText(createStatementData(invoices, plays));
-
 }
 
 function renderPlainText(data, plays) {
