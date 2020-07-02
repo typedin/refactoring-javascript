@@ -1,6 +1,7 @@
 export default function statement(invoices, plays) {
   const statementData = {};
   statementData.customer = invoices.customer
+  statementData.performances = invoices.performances
   return renderPlainText(statementData, invoices, plays);
 }
 function renderPlainText(data, invoices, plays) {
