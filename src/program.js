@@ -33,6 +33,15 @@ export default function statement(invoices, plays) {
     }).format(aNumber / 100)
   }
 
+  function volumeCreditsFor(aPerformance) {
+    let result = 0
+    result += Math.max(aPerformance.audience - 30, 0);
+    if ("comedy" === playFor(aPerformance).type) {
+      result += Math.floor(aPerformance.audience / 5);
+    }
+    return result;
+  }
+
   function playFor(aPerformance) {
     return plays[aPerformance.playID];
   }
@@ -59,14 +68,5 @@ export default function statement(invoices, plays) {
     return result
   }
 
-  function volumeCreditsFor(aPerformance) {
-    let result = 0
-    result += Math.max(aPerformance.audience - 30, 0);
-    if ("comedy" === playFor(aPerformance).type) {
-      result += Math.floor(aPerformance.audience / 5);
-    }
-    return result;
-  }
-  
 }
 
