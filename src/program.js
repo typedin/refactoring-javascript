@@ -1,10 +1,13 @@
 export default function statement(invoices, plays) {
+  return renderPlainText(createStatementData(invoices, plays));
+}
+function createStatementData(invoices, plays) {
   const statementData = {};
   statementData.customer = invoices.customer
   statementData.performances = invoices.performances.map(enrichPerformance);
   statementData.totalAmount = totalAmount(statementData);
   statementData.totalVolumeCredits = totalVolumeCredits(statementData);
-  return renderPlainText(statementData, plays);
+  return statementData;
 
   function totalAmount(data){
     return data.performances
