@@ -3,10 +3,8 @@ export function createPerformanceCalculator(aPerformance, aPlay)
   switch(aPlay.type) {
     case "comedy": 
       return new ComedyPerformanceCalculator(aPerformance, aPlay);
-      break;
     case "tragedy": 
       return new TragedyPerformanceCalculator(aPerformance, aPlay);
-      break;
     default:
       throw new Error(`unknown type: ${aPlay.type}`);
   }
