@@ -1,33 +1,6 @@
-import createStatementData from "./createStatementData.js";
-export { statement }
+import createStatementData from "./createStatementData";
 
-function statement(invoices, plays) {
-  return renderPlainText(createStatementData(invoices, plays));
+export default function statement(invoices, plays) {
+  return createStatementData(invoices, plays);
 }
 
-function usd(aNumber) {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 2
-  }).format(aNumber / 100)
-}
-
-function renderPlainText(data, plays) {
-  let result = `Statement for ${data.customer}\n`;
-
-  for (let perf of data.performances) {
-    result += ` ${perf.play.name}: ${usd(perf.amount)} (${perf.audience} seats)\n`;
-  }
-
-  result += `Amount owed is ${usd(data.totalAmount)}\n`
-  result += `You earned ${data.totalVolumeCredits} credits\n`;
-  return result;
-
-}
-
-function renderHtml(){
-  let result = '';
-
-  return result;
-}
